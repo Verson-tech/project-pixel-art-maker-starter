@@ -33,8 +33,9 @@ pickTheColor.addEventListener('click',function(){
 })
     // ----------------------------------------
 
-function makeGrid() {
+const customGrid = document.getElementById('pixelCanvas');
 
+function makeGrid() {
     // Your code goes here!
     
     }

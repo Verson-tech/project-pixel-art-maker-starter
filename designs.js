@@ -43,6 +43,16 @@ var numberOfRows = document.getElementById('inputHeight').value;
         
 var numberOfColumns = document.getElementById('inputWidth').value;
 
+// Buttons:
+
+var rowsBtn = document.getElementsByTagName('input')[0];
+
+var columnsBtn = document.getElementsByTagName('input')[1];
+
+var submitGridSizeBtn = document.getElementsByTagName('input')[2];     //(at this point should one more <input> be added in .html ('input')[2], the code will break)
+
+console.log(rowsBtn.value);
+
 function makeGrid() {
         // Your code goes here!
     // get the reference for the body
@@ -50,7 +60,7 @@ function makeGrid() {
     // creates a <table> element and a <tbody> element
     var grid = document.createElement('grid');
     var gridBody = document.createElement('gbody');
-    console.log(numberOfRows);
+//     console.log(numberOfRows);
     //creating cells
     for (var r = 0; r < numberOfRows; r++){
             //creates a table row
@@ -64,7 +74,7 @@ function makeGrid() {
                 var cellText = document.createTextNode('cell in row '+r+', column '+c);
                 cell.appendChild(cellText);
                 row.appendChild(cell);
-                console.log(numberOfColumns);
+                // console.log(numberOfColumns);
             }
             // add the row to the end of the grid body
             gridBody.appendChild(row);

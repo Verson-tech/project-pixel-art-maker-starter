@@ -39,40 +39,42 @@
 // })
 //     // ----------------------------------------
 
-
+var numberOfRows = document.getElementById('inputHeight').value;
+        
+var numberOfColumns = document.getElementById('inputWidth').value;
 
 function makeGrid() {
-    // Your code goes here!
-// get the reference for the body
-var body = document.getElementsByTagName('body')[0];
-
-// creates a <table> element and a <tbody> element
-var grid = document.createElement('grid');
-var gridBody = document.createElement('gbody');
-
-//creating cells
-for (var r = 0; r < 2; r++){
-        //creates a table row
-        var row = document.createElement('tr');
-
-        for (var c = 0 ; c < 2; c++){
-      // Create a <td> element and a text node, make the text
-      // node the contents of the <td>, and put the <td> at
-      // the end of the table row
-            var cell = document.createElement('td');
-            var cellText = document.createTextNode('cell in row '+r+', column '+c);
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-        }
-        // add the row to the end of the grid body
-        gridBody.appendChild(row);
-}
-// put the gbody in the grid
-grid.appendChild(gridBody);
-// appends grid into body
-body.appendChild(grid);
-// sets the border attribut of grid to 2
-grid.setAttribute('border','2');   
-}
-
-makeGrid();
+        // Your code goes here!
+    // get the reference for the body
+    var body = document.getElementsByTagName('body')[0];
+    // creates a <table> element and a <tbody> element
+    var grid = document.createElement('grid');
+    var gridBody = document.createElement('gbody');
+    console.log(numberOfRows);
+    //creating cells
+    for (var r = 0; r < numberOfRows; r++){
+            //creates a table row
+            var row = document.createElement('tr');                              //creates N of row(s)
+    
+            for (var c = 0 ; c < numberOfColumns; c++){
+          // Create a <td> element and a text node, make the text
+          // node the contents of the <td>, and put the <td> at
+          // the end of the table row
+                var cell = document.createElement('td');                          //creates N of column(s)    
+                var cellText = document.createTextNode('cell in row '+r+', column '+c);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+                console.log(numberOfColumns);
+            }
+            // add the row to the end of the grid body
+            gridBody.appendChild(row);
+    }
+    // put the gbody in the grid
+    grid.appendChild(gridBody);
+    // appends grid into body
+    body.appendChild(grid);
+    // sets the border attribut of grid to 2
+    grid.setAttribute('border','2');   
+    }
+    
+    makeGrid();

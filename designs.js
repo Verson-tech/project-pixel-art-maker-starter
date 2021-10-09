@@ -39,19 +39,24 @@
 // })
 //     // ----------------------------------------
 
-var numberOfRows = document.getElementById('inputHeight').value;
+var height = document.getElementById('inputHeight');
         
-var numberOfColumns = document.getElementById('inputWidth').value;
+var width = document.getElementById('inputWidth');
 
 // Buttons:
 
-var rowsBtn = document.getElementsByTagName('input')[0];
+var hightBtn = document.getElementsByTagName('input')[0];
+hightBtn.addEventListener('input',function(){
+        console.log(height.value);
+})
 
-var columnsBtn = document.getElementsByTagName('input')[1];
-
+var widthBtn = document.getElementsByTagName('input')[1];
+widthBtn.addEventListener('input',function(){
+        console.log(width.value)
+})
 var submitGridSizeBtn = document.getElementsByTagName('input')[2];     //(at this point should one more <input> be added in .html ('input')[2], the code will break)
 
-console.log(rowsBtn.value);
+console.log(height.value);
 
 function makeGrid() {
         // Your code goes here!
@@ -60,13 +65,13 @@ function makeGrid() {
     // creates a <table> element and a <tbody> element
     var grid = document.createElement('grid');
     var gridBody = document.createElement('gbody');
-//     console.log(numberOfRows);
+//     console.log(height);
     //creating cells
-    for (var r = 0; r < numberOfRows; r++){
+    for (var r = 0; r < height.value; r++){
             //creates a table row
             var row = document.createElement('tr');                              //creates N of row(s)
     
-            for (var c = 0 ; c < numberOfColumns; c++){
+            for (var c = 0 ; c < width.value; c++){
           // Create a <td> element and a text node, make the text
           // node the contents of the <td>, and put the <td> at
           // the end of the table row
@@ -74,7 +79,7 @@ function makeGrid() {
                 var cellText = document.createTextNode('cell in row '+r+', column '+c);
                 cell.appendChild(cellText);
                 row.appendChild(cell);
-                // console.log(numberOfColumns);
+                // console.log(width);
             }
             // add the row to the end of the grid body
             gridBody.appendChild(row);

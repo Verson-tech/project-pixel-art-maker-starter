@@ -1,11 +1,11 @@
 var submitGridSizeBtn = document.getElementsByTagName('input')[2];     //(at this point should one more <input> be added in .html ('input')[2], the code will break)
 submitGridSizeBtn.addEventListener('submit',submitform);
 var height = document.getElementsByTagName('input')[0];
-height.addEventListener('input',function(){
+var h = height.addEventListener('input',function(){
         console.log(height.value);
 })
 var width = document.getElementsByTagName('input')[1];
-width.addEventListener('input',function(){
+var w = width.addEventListener('input',function(){
        console.log(width.value);
 })
 console.log(height);
@@ -15,9 +15,9 @@ console.log(width.value);
 
 function submitform(evnt){
         evnt.preventDefault();
-        makeGrid(height, width);
+        makeGrid();
 }
-function makeGrid() {
+function makeGrid(h, w) {
               var body = document.getElementsByTagName('body')[0];
     // creates a <table> element and a <tbody> element
     var grid = document.createElement('grid');
@@ -31,7 +31,7 @@ function makeGrid() {
           // node the contents of the <td>, and put the <td> at
           // the end of the table row
                 var cell = document.createElement('td');                          //creates N of column(s)    
-                var cellText = document.createTextNode('cell in row '+r+', column '+c);
+                var cellText = document.createTextNode('');
                 cell.appendChild(cellText);
                 row.appendChild(cell);
                            }

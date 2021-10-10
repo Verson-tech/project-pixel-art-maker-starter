@@ -1,3 +1,56 @@
+var submitGridSizeBtn = document.getElementsByTagName('input')[2];     //(at this point should one more <input> be added in .html ('input')[2], the code will break)
+submitGridSizeBtn.addEventListener('submit',submitform);
+var height = document.getElementsByTagName('input')[0];
+height.addEventListener('input',function(){
+        console.log(height.value);
+})
+var width = document.getElementsByTagName('input')[1];
+width.addEventListener('input',function(){
+       console.log(width.value);
+})
+console.log(height);
+console.log(height.value);
+console.log(width);
+console.log(width.value);
+
+function submitform(evnt){
+        evnt.preventDefault();
+        makeGrid(height, width);
+}
+function makeGrid() {
+              var body = document.getElementsByTagName('body')[0];
+    // creates a <table> element and a <tbody> element
+    var grid = document.createElement('grid');
+    var gridBody = document.createElement('gbody');
+    //creating cells
+    for (var r = 0; r < height.value; r++){
+            //creates a table row
+            var row = document.createElement('tr');                              //creates N of row(s)
+            for (var c = 0 ; c < width.value; c++){
+          // Create a <td> element and a text node, make the text
+          // node the contents of the <td>, and put the <td> at
+          // the end of the table row
+                var cell = document.createElement('td');                          //creates N of column(s)    
+                var cellText = document.createTextNode('cell in row '+r+', column '+c);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+                           }
+            // add the row to the end of the grid body
+            gridBody.appendChild(row);
+    }
+    // put the gbody in the grid
+    grid.appendChild(gridBody);
+    // appends grid into body
+    body.appendChild(grid);
+    // sets the border attribut of grid to 2
+    grid.setAttribute('border','2');   
+    }   
+    makeGrid();
+
+
+
+
+
 // Select color input
 // Select size input
 
@@ -39,57 +92,4 @@
 // })
 //     // ----------------------------------------
 
-var height = document.getElementById('inputHeight');
-        
-var width = document.getElementById('inputWidth');
 
-// Buttons:
-
-var hightBtn = document.getElementsByTagName('input')[0];
-hightBtn.addEventListener('input',function(){
-        console.log(height.value);
-})
-
-var widthBtn = document.getElementsByTagName('input')[1];
-widthBtn.addEventListener('input',function(){
-        console.log(width.value)
-})
-var submitGridSizeBtn = document.getElementsByTagName('input')[2];     //(at this point should one more <input> be added in .html ('input')[2], the code will break)
-
-console.log(height.value);
-
-function makeGrid() {
-        // Your code goes here!
-    // get the reference for the body
-    var body = document.getElementsByTagName('body')[0];
-    // creates a <table> element and a <tbody> element
-    var grid = document.createElement('grid');
-    var gridBody = document.createElement('gbody');
-//     console.log(height);
-    //creating cells
-    for (var r = 0; r < height.value; r++){
-            //creates a table row
-            var row = document.createElement('tr');                              //creates N of row(s)
-    
-            for (var c = 0 ; c < width.value; c++){
-          // Create a <td> element and a text node, make the text
-          // node the contents of the <td>, and put the <td> at
-          // the end of the table row
-                var cell = document.createElement('td');                          //creates N of column(s)    
-                var cellText = document.createTextNode('cell in row '+r+', column '+c);
-                cell.appendChild(cellText);
-                row.appendChild(cell);
-                // console.log(width);
-            }
-            // add the row to the end of the grid body
-            gridBody.appendChild(row);
-    }
-    // put the gbody in the grid
-    grid.appendChild(gridBody);
-    // appends grid into body
-    body.appendChild(grid);
-    // sets the border attribut of grid to 2
-    grid.setAttribute('border','2');   
-    }
-    
-    makeGrid();

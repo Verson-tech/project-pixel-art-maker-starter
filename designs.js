@@ -3,27 +3,32 @@
 // var width = document.getElementsByTagName('input')[1];
 var clickSubmit = document.querySelector(".check");
 
-clickSubmit.addEventListener("click", function foo(event) {
-  event.preventDefault();
-  var height = Number(document.getElementsByTagName("input")[0].value);
-  var width = Number(document.getElementsByTagName("input")[1].value);
-  console.log(height);
-  console.log(width);
+clickSubmit.addEventListener("click",  submitForm)
 
-  if (!height || !width) {
-    window.alert("Enter a number above zero!!!👀");
-  } else if (height > 35 || width > 35) {
-    window.alert(
-      "Please, be reasonable with your numbers in order to fit in the window pane!!! Your number should be less then 35."
-    );
-  } else if (height === 1 && width === 1) {
-    window.alert(
-      `"${height} x ${width}" is not fun!!! Enter something more creative!!!`
-    );
-  } else {
-    makeGrid();
-  }
-});
+
+function submitForm(event) {
+        event.preventDefault();
+        var height = Number(document.getElementsByTagName("input")[0].value);
+        var width = Number(document.getElementsByTagName("input")[1].value);
+        console.log(height);
+        console.log(width);
+      
+        if (!height || !width) {
+          window.alert("Enter a number above zero!!!👀");
+        } else if (height > 35 || width > 35) {
+          window.alert(
+            "Please, be reasonable with your numbers in order to fit in the window pane!!! Your number should be less then 35."
+          );
+        } else if (height === 1 && width === 1) {
+          window.alert(
+            `"${height} x ${width}" is not fun!!! Enter something more creative!!!`
+          );
+        } else {
+              makeGrid();
+              clickSubmit.removeEventListener("click",  submitForm)
+        }
+      };
+
 
 function makeGrid() {
   var body = document.getElementsByTagName("body")[0];
